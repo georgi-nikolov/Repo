@@ -24,5 +24,7 @@ public class Test2 {
 			}
 		}
 		return temp[idx];
+
+		System.out.println("Dopisan text za commit");s
 	}
 }
