@@ -5,11 +5,18 @@ public class Employee extends Person {
 
 	Employee(String name, int age, boolean isMale, double daySalary) {
 		super(name, age, isMale);
-		if (daySalary > 0) {
+		this.setDaySalary(daySalary);
+	}
+	
+	void setDaySalary(double daySalary){
+		if(daySalary>0){
 			this.daySalary = daySalary;
 		}
+		else{
+			throw new IllegalArgumentException("Invalid input for daySalary field");
+		}
 	}
-
+	
 	double calculateOvertime(double hours) {
 		if (this.getAge() <= 18) {
 			return 0;

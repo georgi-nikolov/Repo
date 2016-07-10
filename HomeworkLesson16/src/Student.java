@@ -13,10 +13,12 @@ public class Student extends Person {
 		if (score >= 2 && score <= 6) {
 			this.score = score;
 		}
+		else
+			throw new IllegalArgumentException("Invalid input for score field");
 	}
 
 	void showStudentInfo() {
 		super.showInfo();
-		System.out.println("The score of this student is : " + score);
+		System.out.println("The score of this student is : " + this.score);
 	}
 }

@@ -6,12 +6,8 @@ public class Person {
 	private boolean isMale;
 
 	Person(String name, int age, boolean isMale) {
-		if (!name.isEmpty()) {
-			this.name = name;
-		}
-		if (age > 0) {
-			this.age = age;
-		}
+		this.setName(name);
+		this.setAge(age);
 		this.isMale = isMale;
 	}
 
@@ -23,7 +19,24 @@ public class Person {
 			System.out.println("She is " + age + " years old");
 		}
 	}
-
+	
+	void setName(String name) {
+		String regex = "^[\\p{L} .'-]+$";
+		if(name == null || name.isEmpty() || (!(name.matches(regex))))
+			throw new IllegalArgumentException("Invalid input for name field");
+		else
+			this.name = name;
+	}
+	
+	void setAge(int age){
+		if (age > 0) {
+			this.age = age;
+		}
+		else{
+			throw new IllegalArgumentException("Invalid input for age field");
+		}
+	}
+	
 	int getAge() {
 		return age;
 	}
